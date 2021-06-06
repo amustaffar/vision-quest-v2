@@ -1,15 +1,20 @@
 import * as path from 'path'
-import { Configuration } from 'webpack'
+import * as webpack from 'webpack'
+import * as devServer from 'webpack-dev-server'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 
-const DIST = path.resolve(__dirname, 'dist/app')
+type Config
+  = webpack.Configuration
+  & { devServer: devServer.Configuration }
 
-export default (): Configuration => ({
+const DIST = path.resolve(__dirname, 'dist')
+
+export default (): Config => ({
   resolve: { extensions: ['.tsx', '.ts', '.js', '.json'] },
-  entry: './app/render.tsx',
+  entry: './src/render.tsx',
   target: 'web',
   devtool: 'source-map',
-  plugins: [new HTMLWebpackPlugin({ template: './app/index.ejs' })],
+  plugins: [new HTMLWebpackPlugin({ template: 'index.ejs' })],
   output: { path: DIST, filename: '[name].js', publicPath: './' },
 
   module: {

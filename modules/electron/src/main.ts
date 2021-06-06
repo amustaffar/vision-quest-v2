@@ -4,6 +4,7 @@ import { app, BrowserWindow } from 'electron'
 
 const isDev = () => process.env.NODE_ENV === 'development'
 const html = () => path.join(__dirname, '../index.html')
+const preload = () => path.join(__dirname, './preload.js')
 
 const getUrl = () => {
   if (isDev()) { return 'http://localhost:4000' }
@@ -17,9 +18,13 @@ const getUrl = () => {
 
 const createWindow = () => {
   const main = new BrowserWindow({
-    width: 800,
-    height: 600,
-    titleBarStyle: 'hidden'
+    width: 1200,
+    height: 900,
+    minWidth: 800,
+    minHeight: 600,
+    webPreferences: {
+      preload: preload()
+    }
   })
 
   main.loadURL(getUrl())

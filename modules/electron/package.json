@@ -1,0 +1,14 @@
+{
+  "name": "@vision-quest/electron",
+  "version": "1.0.0",
+  "description": "Vision Quest: Electron",
+  "main": "dist/main.js",
+  "author": "Chris Fothergill",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "rm -rf dist && tsc && NODE_ENV=development electron ."
+  },
+  "devDependencies": {
+    "electron": "^13.1.0"
+  }
+}

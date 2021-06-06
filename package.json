@@ -1,37 +1,17 @@
 {
-  "name": "vision-quest",
+  "name": "@vision-quest/root",
   "version": "1.0.0",
-  "description": "Vision Quest",
+  "description": "Vision Quest: Root",
   "main": "dist/main.js",
   "author": "Chris Fothergill",
   "license": "UNLICENSED",
-  "scripts": {
-    "dev:electron": "NODE_ENV=development webpack --config webpack.electron.config.ts --mode development && electron .",
-    "dev:app": "NODE_ENV=development webpack serve --config webpack.app.config.ts --mode development"
-  },
+  "private": true,
   "devDependencies": {
-    "@babel/cli": "^7.14.3",
-    "@babel/core": "^7.14.3",
-    "@babel/preset-env": "^7.14.4",
-    "@babel/preset-react": "^7.13.13",
-    "@babel/preset-typescript": "^7.13.0",
     "@types/node": "^15.12.0",
-    "@types/react": "^17.0.9",
-    "@types/react-dom": "^17.0.6",
-    "@types/webpack-dev-server": "^3.11.4",
-    "babel-loader": "^8.2.2",
-    "electron": "^13.1.0",
-    "html-webpack-plugin": "^5.3.1",
     "ts-node": "^10.0.0",
-    "typescript": "^4.3.2",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2"
+    "typescript": "^4.3.2"
   },
-  "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  }
+  "workspaces": [
+    "modules/**"
+  ]
 }

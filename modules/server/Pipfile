@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+numpy = "*"
+pandas = "*"
+scipy = "*"
+scikit-image = "*"
+joblib = "*"
+flask-cors = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
