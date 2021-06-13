@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography'
 
 type Props = Readonly<{
   title: string
+  tabs?: React.ReactNode
+  actions?: React.ReactNode
 }>
 
 const AppBar = (props: Props) => {
@@ -19,10 +21,18 @@ const AppBar = (props: Props) => {
       className={styles.root}
     >
       <Toolbar>
-        <Typography variant="h6">
+        <Typography variant="h6" className={styles.title}>
           {props.title}
         </Typography>
+
+        {props.actions}
       </Toolbar>
+
+      {props.tabs && (
+        <Toolbar variant="dense" disableGutters>
+          {props.tabs}
+        </Toolbar>
+      )}
     </Internal>
   )
 }
@@ -32,6 +42,10 @@ const useStyles = makeStyles(theme => ({
     borderBottom: '1px solid',
     borderBottomColor: theme.palette.divider,
     backgroundColor: theme.palette.background.paper
+  },
+
+  title: {
+    flexGrow: 1
   }
 }))
 

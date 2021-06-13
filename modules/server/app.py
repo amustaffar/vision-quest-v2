@@ -7,6 +7,6 @@ CORS(app)
 
 @app.route("/", methods=['POST'])
 def hello_world():
+  id = request.form['id']
   f = request.files['data']
-  return run_particles(f, 1, 20)
-  # return { "hello": "world" }
+  return run_particles(id, f, 1, 20)
