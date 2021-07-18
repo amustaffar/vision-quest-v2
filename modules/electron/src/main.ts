@@ -3,7 +3,7 @@ import * as path from 'path'
 import { app, BrowserWindow } from 'electron'
 
 const isDev = () => process.env.NODE_ENV === 'development'
-const html = () => path.join(__dirname, '../index.html')
+const html = () => path.join(__dirname, './app/index.html')
 const preload = () => path.join(__dirname, './preload.js')
 
 const getUrl = () => {

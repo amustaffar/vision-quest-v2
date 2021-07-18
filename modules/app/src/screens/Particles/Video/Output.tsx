@@ -13,15 +13,15 @@ const Output = ({ results, settings }: Props) => {
 
   return (
     <Box p={2}>
-      <Box mb={2}>
+      <Box pb={2}>
         <Outputs.Series settings={settings} results={results} />
       </Box>
 
-      <Box mb={2}>
+      <Box pb={2}>
         <Outputs.Values settings={settings} result={result} />
       </Box>
       
-      <Box mb={2}>
+      <Box pb={16}>
         <Outputs.Data settings={settings} result={result} />
       </Box>
     </Box>

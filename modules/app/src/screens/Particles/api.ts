@@ -8,7 +8,7 @@ export const processFile = async (file: File) => {
 
   const res = await axios.request<Result>({
     method: 'POST',
-    url: 'http://localhost:5000',
+    url: 'http://35.176.182.151:5000',
     data
   })
 

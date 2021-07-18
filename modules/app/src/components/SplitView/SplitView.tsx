@@ -22,7 +22,8 @@ const SplitView = (props: Props) => {
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    flex: 1
+    flex: 1,
+    maxHeight: '100%'
   },
 
   split: {
@@ -31,6 +32,7 @@ const useStyles = makeStyles(theme => ({
     width: '50%',
     borderRight: '1px solid',
     borderRightColor: theme.palette.divider,
+    overflowY: 'scroll',
     '&:last-of-type': {
       borderRight: 'none'
     }

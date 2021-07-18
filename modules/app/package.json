@@ -6,7 +6,8 @@
   "author": "Chris Fothergill",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "NODE_ENV=development webpack serve --config webpack.config.ts --mode development"
+    "dev": "NODE_ENV=development webpack serve --config webpack.config.ts --mode development",
+    "build": "webpack --config webpack.config.ts"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
@@ -19,6 +20,7 @@
     "@types/react": "^17.0.9",
     "@types/react-dom": "^17.0.6",
     "@types/react-router-dom": "^5.1.7",
+    "@types/w3c-image-capture": "^1.0.3",
     "@types/webpack-dev-server": "^3.11.4",
     "babel-loader": "^8.2.2",
     "faker": "^5.5.3",

@@ -16,7 +16,7 @@ const Preview = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
 })
 
 const useStyles = makeStyles(() => ({
-  root: { backgroundColor: '#222', flex: 1 }
+  root: { backgroundColor: '#222' }
 }))
 
 export default Preview

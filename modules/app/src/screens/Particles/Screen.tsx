@@ -12,7 +12,7 @@ import Video from './Video'
 
 const Particles = () => {
   const [provider, setProvider] = useState<Provider>('image')
-  const [settings, setSettings] = useState<Settings>({ unit: 'pixel', rate: 1, ratio: 1 })
+  const [settings, setSettings] = useState<Settings>({ unit: 'pixel', rate: 2, ratio: 1 })
   const [open, setOpen] = useState<boolean>(false)
 
   return (
