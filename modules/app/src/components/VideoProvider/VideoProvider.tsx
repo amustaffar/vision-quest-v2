@@ -19,6 +19,7 @@ const VideoProvider = (props: Props) => {
         .then(stream => {
           ref.current.srcObject = stream
           const track = stream.getVideoTracks()[0];
+          console.log(track.getCapabilities())
           capture.current = new ImageCapture(track)
         })
         .catch(console.error)

@@ -14,3 +14,13 @@ export const processFile = async (file: File) => {
 
   return res.data
 }
+
+export const saveFrame = (dir: string, id: string, file: File) => {
+  file.arrayBuffer().then(data => {
+    window.electron?.invoke('save_frame', dir, id, data)
+  })
+}
+
+export const saveResults = (dir: string, data: string) => {
+  window.electron?.invoke('save_results', dir, data)
+}

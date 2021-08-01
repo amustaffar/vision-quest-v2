@@ -1,6 +1,7 @@
 import * as url from 'url'
 import * as path from 'path'
-import { app, BrowserWindow } from 'electron'
+import * as fs from 'fs/promises'
+import { BrowserWindow, app, ipcMain, dialog } from 'electron'
 
 const isDev = () => process.env.NODE_ENV === 'development'
 const html = () => path.join(__dirname, './app/index.html')
@@ -44,4 +45,17 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
+})
+
+ipcMain.handle('choose_directory', async () => {
+  const res = await dialog.showOpenDialog({ properties: ['openDirectory', 'createDirectory'] })
+  return res.filePaths[0] ?? null
+})
+
+ipcMain.handle('save_frame', async (_, dir: string, id: string, data: ArrayBuffer) => {
+  await fs.writeFile(path.resolve(dir, `${id}.jpeg`), Buffer.from(data))
+})
+
+ipcMain.handle('save_results', async (_, dir: string, data: string) => {
+  await fs.writeFile(path.resolve(dir, 'results.csv'), data)
 })

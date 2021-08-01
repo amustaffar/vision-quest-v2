@@ -1,18 +1,26 @@
 import React from 'react'
 import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
 import * as Outputs from '../outputs'
 import { Result, Settings } from '../types'
 
 type Props = Readonly<{
   results: ReadonlyArray<Result>
+  onStop: () => void
   settings: Settings
 }>
 
-const Output = ({ results, settings }: Props) => {
+const Output = ({ results, settings, onStop }: Props) => {
   const result = results[results.length - 1]
 
   return (
     <Box p={2}>
+      <Box pb={2} display="flex" justifyContent="flex-end">
+        <Button variant="contained" color="primary" onClick={onStop}>
+          Stop
+        </Button>
+      </Box>
+
       <Box pb={2}>
         <Outputs.Series settings={settings} results={results} />
       </Box>

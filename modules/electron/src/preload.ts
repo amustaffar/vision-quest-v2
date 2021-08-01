@@ -1,5 +1,9 @@
-import { contextBridge } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
 
 contextBridge.exposeInMainWorld('electron', {
-  platform: process.platform
+  platform: process.platform,
+
+  invoke: (channel: string, ...args: ReadonlyArray<any>): Promise<any> => {
+    return ipcRenderer.invoke(channel, ...args)
+  }
 })

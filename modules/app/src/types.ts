@@ -12,3 +12,12 @@ export type Sensor = keyof typeof SENSORS
 export const isSensor = (value: string): value is Sensor => {
   return Object.keys(SENSORS).includes(value)
 }
+
+declare global {
+  interface Window {
+    electron?: Readonly<{
+      platform: string
+      invoke: (_: string, ...args: any[]) => Promise<any>
+    }>
+  }
+}

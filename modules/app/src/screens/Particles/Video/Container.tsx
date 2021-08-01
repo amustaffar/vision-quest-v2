@@ -5,27 +5,34 @@ import * as Status from '../../../components/Status'
 import { Settings } from '../types'
 import { useVideo } from './hooks'
 import Output from './Output'
+import Idle from './Idle'
 
 type Props = Readonly<{
   settings: Settings
 }>
 
 const Container = (props: Props) => {
-  const [capture, state] = useVideo()
+  const [controls, state] = useVideo()
 
   return (
     <SplitView>
       <Input
-        onCapture={capture}
+        onCapture={controls.capture}
         rate={props.settings.rate}
       />
 
       {(() => {
         switch (state.tag) {
-          case 'idle': return null
+          case 'idle': return <Idle onStart={controls.start} />
           case 'loading': return <Status.Loading />
           case 'failure': return <Status.Failure />
-          case 'success': return <Output settings={props.settings} results={state.result} />
+          case 'success': return (
+            <Output
+              settings={props.settings}
+              results={state.result}
+              onStop={controls.stop}
+            />
+          )
         }
       })()}
     </SplitView>
